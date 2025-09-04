@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goedoverleven.nl - Interactieve Noodpakket Checklist</title>
+    <meta name="description" content="Stel uw noodpakket samen met deze interactieve checklist. Volg de richtlijnen van Rijksoverheid en Rode Kruis voor 72 uur zelfredzaamheid.">
+    <link rel="stylesheet" href="/css/tail.css">
+
+    <link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/icons/favicon.svg" />
+    <link rel="shortcut icon" href="/images/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Goed Overleven" />
+    <link rel="manifest" href="/images/icons/site.webmanifest" />
+    
+    <style>
+        body {
+            font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #FDFBF8;
+            color: #333;
+        }
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .progress-circle-bg {
+            fill: none;
+            stroke: #e6e6e6;
+        }
+        .progress-circle-fg {
+            fill: none;
+            stroke: #A32A29;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+            transition: stroke-dashoffset 0.5s;
+        }
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .print-area, .print-area * {
+                visibility: visible;
+            }
+            .print-area {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+            h1, h2 {
+                color: black !important;
+            }
+        }
+    </style>
+     <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Goedoverleven.nl - Interactieve Noodpakket Checklist",
+          "description": "Stel uw noodpakket samen met deze interactieve checklist. Volg de richtlijnen van Rijksoverheid en Rode Kruis voor 72 uur zelfredzaamheid.",
+          "url": "https://www.goedoverleven.nl/noodpakket-checklist",
+          "inLanguage": "nl",
+          "image": "/images/goedoverleven.webp",
+          "author": {
+            "@type": "Organization",
+            "name": "Goedoverleven.nl"
+          }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <div id="app" class="main-container px-4 py-8 sm:px-6 lg:px-8">
+
+        <header class="text-center mb-10">
+            <div class="flex flex-col items-center justify-center mb-4">
+                 <img src="/images/goedoverleven.webp" alt="Goedoverleven.nl Logo" class="h-20 mb-4">
+                 <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Goedoverleven.nl</h1>
+            </div>
+            <p class="mt-3 text-lg text-gray-600 max-w-3xl mx-auto">Een goede voorbereiding kan het verschil maken. Met deze interactieve checklist, gebaseerd op de richtlijnen van de Rijksoverheid en het Rode Kruis, zorgt u dat u 72 uur zelfredzaam bent in een noodsituatie. Een <strong>noodpakket samenstellen</strong> is de eerste en belangrijkste stap om uzelf en uw gezin te beschermen tegen onvoorziene gebeurtenissen zoals stroomuitval, extreme weersomstandigheden of andere crises. Onze checklist is uw persoonlijke gids om uw <strong>noodpakket</strong> compleet en actueel te houden.</p>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <div id="checklist-container" class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm">
+                <p class="text-gray-600 mb-6">Een goed noodpakket bestaat uit diverse essentiële categorieën. De items hieronder zijn zorgvuldig samengesteld om u te voorzien van de basisbehoeften gedurende 72 uur. Volg de lijst, vink af wat u al heeft en zorg ervoor dat uw <strong>noodpakket</strong> volledig is.</p>
+            </div>
+
+            <aside class="lg:col-span-1 space-y-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center sticky top-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Uw Voortgang</h2>
+                    <p class="text-gray-600 mb-4">Vink de items af die u al in huis heeft en zie direct hoe compleet uw noodpakket is.</p>
+                    <div class="chart-container relative w-full max-w-xs mx-auto h-64">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                    <div id="summary" class="mt-6 text-left">
+                        <p class="text-lg font-medium">Totaal verzameld: <span id="items-checked" class="font-bold text-red-700">0</span> van <span id="items-total"></span> items.</p>
+                    </div>
+                     <button id="print-button" class="mt-6 w-full bg-red-700 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-800 transition-colors">
+                        Print mijn checklist
+                    </button>
+                </div>
+            </aside>
+            <div class="lg:col-span-2 mt-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Waarom is een noodpakket belangrijk?</h2>
+                    <p class="text-gray-600">Een <strong>noodpakket samenstellen</strong> is een cruciale stap in de voorbereiding op onverwachte situaties. In een crisis kunnen basisvoorzieningen, zoals elektriciteit en stromend water, uitvallen. De overheid adviseert om dan 72 uur lang op eigen kracht te kunnen overleven. Dit pakket is uw eerste hulpbron totdat professionele hulp beschikbaar is. Door nu een pakket samen te stellen, verkleint u de kans op paniek en bent u optimaal voorbereid.</p>
+                    <p class="text-gray-600 mt-4">Nu u de lijst heeft doorgenomen, zorg ervoor dat u de items op een vaste, makkelijk bereikbare plek bewaart. Denk aan een kast in de hal of garage. Controleer de inhoud minstens twee keer per jaar op houdbaarheidsdata en vervang waar nodig. Een goed onderhouden noodpakket geeft gemoedsrust en kan van levensbelang zijn.</p>
+                    <div class="mt-8 text-center">
+                        <img src="https://placehold.co/600x400/F4DEDE/A32A29?text=Noodpakket" alt="Een voorbeeld van een goed samengesteld noodpakket met verschillende benodigdheden." class="mx-auto rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="main-container px-4 text-center">
+            <p>&copy; 2025 Goedoverleven.nl. Alle rechten voorbehouden.</p>
+            <div class="mt-4 space-x-4">
+                <a href="https://www.rijksoverheid.nl/onderwerpen/veiligheidsregios-en-crisisbeheersing/vraag-en-antwoord/wat-zit-er-in-een-noodpakket" target="_blank" rel="noopener noreferrer" class="hover:underline">Rijksoverheid</a>
+                <span>|</span>
+                <a href="https://www.rodekruis.nl/wat-doen-wij/hulp-in-nederland/goed-voorbereid/wat-zit-er-in-een-noodpakket/" target="_blank" rel="noopener noreferrer" class="hover:underline">Rode Kruis</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="item-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden opacity-0">
+        <div class="bg-white rounded-xl shadow-2xl p-6 md:p-8 w-full max-w-md transform scale-95 transition-transform">
+            <h3 id="modal-title" class="text-2xl font-bold text-gray-800 mb-4"></h3>
+            <p id="modal-description" class="text-gray-600 mb-6"></p>
+            <button id="modal-close" class="w-full bg-gray-200 text-gray-800 font-bold py-3 px-4 rounded-lg hover:bg-gray-300 transition-colors">Sluiten</button>
+        </div>
+    </div>
+    
+    <div id="print-content" class="hidden print-area"></div>
+
+
+   <script src="/js/noodpakket-tool.js"></script>
+      <script src="/js/chart.min.js"></script>
+</body>
+</html>
