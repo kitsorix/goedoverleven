@@ -1,5 +1,5 @@
 {
-  "name": "wretched-wasp",
+  "name": "goedoverleven",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,14 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.5.18",
-    "lucide-react": "^0.563.0"
+    "astro": "^4.16.0",
+    "lucide-react": "^0.453.0"
   },
   "devDependencies": {
-    "@astrojs/react": "^4.4.2",
+    "@astrojs/react": "^3.6.0",
     "@tailwindcss/vite": "^4.1.18",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "tailwindcss": "^4.1.18"
   }
 }
