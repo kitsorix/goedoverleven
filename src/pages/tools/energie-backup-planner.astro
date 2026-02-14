@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EnergyBackupPlannerWrapper from "../../components/tools/EnergyBackupPlanner.jsx";
+---
+
+<BaseLayout title="Energie Backup Planner | GoedOverleven.nl">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="mb-10 text-center">
+            <h1
+                class="text-4xl font-extrabold text-yellow-900 mb-4 tracking-tight"
+            >
+                Energie Backup Planner
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Wil je stroom hebben tijdens een uitval? Bereken precies hoeveel
+                capaciteit je nodig hebt.
+            </p>
+        </div>
+
+        <EnergyBackupPlannerWrapper client:load />
+
+        <div class="mt-12 prose prose-lg mx-auto text-gray-600">
+            <h3>Hoe werkt stroomopslag?</h3>
+            <p>
+                De capaciteit van een batterij wordt vaak uitgedrukt in Wattuur
+                (Wh). Als je een lamp van 10 Watt gedurende 5 uur wilt laten
+                branden, heb je 10 x 5 = 50 Wh nodig.
+            </p>
+            <h3>Verlies</h3>
+            <p>
+                Powerstations zijn nooit 100% efficiënt. Door omvorming van DC
+                (batterij) naar AC (stopcontact) verlies je ongeveer 15-20%
+                energie. Onze calculator houdt hier rekening mee.
+            </p>
+        </div>
+    </div>
+</BaseLayout>

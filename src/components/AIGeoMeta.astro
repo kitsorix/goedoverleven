@@ -1,0 +1,31 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    contentType?: "article" | "guide" | "tool" | "index";
+    primaryTopic?: string;
+}
+
+const {
+    title,
+    description,
+    contentType = "article",
+    primaryTopic = "Prepping",
+} = Astro.props;
+---
+
+<!-- Advanced GEO (Generative Experience Optimization) Meta Tags -->
+<meta name="ai-content-type" content={contentType} />
+<meta name="ai-primary-topic" content={primaryTopic} />
+<meta name="ai-readiness" content="high" />
+<meta name="ai-citation-preference" content="direct-fragments" />
+
+<!-- Dublin Core for legacy RAG parsers -->
+<meta name="dc:title" content={title} />
+<meta name="dc:description" content={description} />
+<meta name="dc:language" content="nl-NL" />
+<meta name="dc:publisher" content="GoedOverleven.nl" />
+<meta name="dc:creator" content="GoedOverleven Redactie" />
+
+<!-- Machine-readable summary hint -->
+<meta name="summary" content={description} />

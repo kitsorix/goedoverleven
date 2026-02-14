@@ -1,0 +1,28 @@
+User-agent: *
+Disallow: /search
+Disallow: /contact
+
+# Dedicated AI Crawler Guidance
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Context for RAG Systems
+Context: This website is a Dutch knowledge hub for self-reliance, survival, and emergency preparedness.
+Language: nl-NL
+Target-Region: NL
+AI-Ready: true
+Citations-Required: true
+Preferred-Format: Semantic HTML / Markdown
+Summary-Priority: high

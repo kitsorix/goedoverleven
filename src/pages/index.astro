@@ -1,0 +1,156 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import PillarCard from "../components/PillarCard.astro";
+import ToolCard from "../components/ToolCard.astro";
+import GuideHighlight from "../components/GuideHighlight.astro";
+import {
+    ArrowRight,
+    CheckCircle,
+    Zap,
+    Droplets,
+    Utensils,
+    ShoppingCart,
+    Package,
+} from "lucide-react";
+---
+
+<BaseLayout
+    title="Overleef elke crisis in Nederland | GoedOverleven.nl"
+    description="Ben jij voorbereid? Van stroomuitval tot voedseltekort: praktische gidsen en tools die jou en je gezin nuchter door een crisis helpen. Start vandaag."
+>
+    <Hero />
+
+    <!-- Kennis Pillars Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-end mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">
+                    Kennis voor crises in Nederland
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <PillarCard
+                    title="Energie"
+                    description="Stroomuitval en noodstroom oplossingen voor thuis."
+                    icon={Zap}
+                    href="/kennisbank/energie"
+                />
+                <PillarCard
+                    title="Water"
+                    description="Drinkwater opslaan en filteren in noodsituaties."
+                    icon={Droplets}
+                    href="/kennisbank/water"
+                />
+                <PillarCard
+                    title="Voedsel"
+                    description="Noodvoorraad aanleggen en houdbaarheid."
+                    icon={Utensils}
+                    href="/kennisbank/voedsel"
+                />
+            </div>
+            <div class="mt-8 text-center md:hidden">
+                <a
+                    href="/kennisbank"
+                    class="text-green-700 font-semibold flex items-center justify-center gap-2"
+                >
+                    Bekijk alle onderwerpen <ArrowRight className="w-4 h-4" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Guides Section -->
+    <section class="py-16 bg-orange-50/50">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Tools Column -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-8">
+                        Handige tools & calculators
+                    </h2>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <ToolCard
+                            title="Voorraad Generator"
+                            description="Houd je voorraad vers en georganiseerd met een slimme lijst."
+                            icon={ShoppingCart}
+                            href="/tools/voorraad-generator"
+                        />
+                        <ToolCard
+                            title="Waterbehoefte Calculator"
+                            description="Reken uit wat je nodig hebt voor jouw gezin."
+                            icon={Droplets}
+                            href="/tools/waterbehoefte-calculator"
+                        />
+                        <ToolCard
+                            title="Noodpakket Calculator"
+                            description="Stel je eerste hulp en survival kit samen."
+                            icon={Package}
+                            href="/tools/noodpakket-calculator"
+                        />
+                    </div>
+                    <div class="mt-6">
+                        <a
+                            href="/tools"
+                            class="text-green-700 font-semibold flex items-center gap-2 text-sm hover:underline"
+                        >
+                            Bekijk alle tools <ArrowRight className="w-4 h-4" />
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Highlights Column -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-8">
+                        Uitgelichte gidsen
+                    </h2>
+                    <GuideHighlight />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Trust Section (Optional, mimicking bottom part of screenshot) -->
+    <section class="py-12 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-4">
+            <div
+                class="bg-gray-50 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8"
+            >
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 bg-orange-200 rounded-full flex items-center justify-center text-orange-700 font-bold"
+                        >
+                            :)
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900">
+                            We sparen je wat u nu doen;
+                        </h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <CheckCircle className="w-5 h-5 text-green-700" /> Praktisch
+                            en nuchter.
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <CheckCircle className="w-5 h-5 text-green-700" /> Nederlandse
+                            regels.
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <CheckCircle className="w-5 h-5 text-green-700" /> Slimme
+                            producten en plannen.
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-1 w-full md:w-auto">
+                    <img
+                        src="https://placehold.co/500x200/e2e8f0/64748b?text=Banner"
+                        alt="Banner"
+                        class="w-full h-auto rounded-xl"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

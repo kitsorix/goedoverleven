@@ -1,0 +1,92 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BottomNav from "../components/BottomNav.astro";
+import AIGeoMeta from "../components/AIGeoMeta.astro";
+import SchemaExpert from "../components/SchemaExpert.astro";
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+	type?: string;
+}
+
+const {
+	title,
+	description = "Zelfredzaam leven in Nederland. Bereid je praktisch voor op stroomuitval, voedseltekort en digitale storingen.",
+	image = "/og-image.png",
+	type = "website",
+} = Astro.props;
+
+const canonicalURL = new URL(
+	Astro.url.pathname,
+	Astro.site || "https://goedoverleven.nl"
+);
+---
+
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link
+			rel="icon"
+			type="image/png"
+			href="/favicon-96x96.png"
+			sizes="96x96"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png"
+		/>
+		<meta name="apple-mobile-web-app-title" content="GoedOverleven" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="generator" content={Astro.generator} />
+
+		<AIGeoMeta
+			title={title}
+			description={description}
+			contentType={type === "article" ? "article" : "index"}
+		/>
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content={type} />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:locale" content="nl_NL" />
+		<meta property="og:site_name" content="GoedOverleven.nl" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+	</head>
+	<body class="font-sans text-gray-900 bg-white">
+		<a
+			href="#main-content"
+			class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-green-900 focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+		>
+			Sla navigatie over
+		</a>
+		<Header />
+		<main id="main-content" class="min-h-screen">
+			<slot />
+		</main>
+		<Footer />
+		<BottomNav />
+		<SchemaExpert />
+	</body>
+</html>

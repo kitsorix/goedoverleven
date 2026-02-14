@@ -1,0 +1,170 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import {
+    Zap,
+    Battery,
+    Sun,
+    Lightbulb,
+    ShieldAlert,
+    ChevronRight,
+} from "lucide-react";
+
+const articles = [
+    {
+        title: "Noodstroom voor je Huis: Opties & Kosten",
+        description:
+            "Van aggregaten tot thuisbatterijen. Wat is de beste investering?",
+        href: "/kennisbank/energie/noodstroom-huis",
+    },
+    {
+        title: "Powerbanks voor Noodsituaties",
+        description: "Niet elke powerbank is gelijk. Waar moet je op letten?",
+        href: "/kennisbank/energie/powerbank-nood",
+    },
+    {
+        title: "Generatoren: Wetgeving & Gebruik",
+        description: "Mag je zomaar een generator draaien in een woonwijk?",
+        href: "/kennisbank/energie/generator-wetgeving",
+    },
+    {
+        title: "Zonnepanelen bij Stroomuitval",
+        description:
+            "Spoiler: De meeste zonnepanelen werken NIET als de stroom uitvalt.",
+        href: "/kennisbank/energie/zonnepanelen-uitval",
+    },
+    {
+        title: "Zo Bereid je je Voor op een Blackout",
+        description:
+            "De ultieme checklist voor de eerste 72 uur zonder stroom.",
+        href: "/kennisbank/energie/blackout-voorbereiden",
+    },
+    {
+        title: "Koken Zonder Stroom",
+        description:
+            "Inductieplaat dood? Zo zet je toch een warme maaltijd op tafel.",
+        href: "/kennisbank/energie/koken-zonder-stroom",
+    },
+];
+---
+
+<BaseLayout
+    title="Energie & Stroomuitval in Nederland | Kennisbank"
+    description="Hoe overleef je een langdurige stroomuitval in Nederland? Alles over noodstroom, aggregaten en voorbereiding op een blackout."
+>
+    <div class="bg-white py-16">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <!-- Header -->
+            <div class="mb-16">
+                <nav
+                    class="flex items-center space-x-2 text-sm text-gray-500 mb-8"
+                >
+                    <a href="/" class="hover:text-green-700">Home</a>
+                    <ChevronRight className="w-4 h-4" />
+                    <a href="/kennisbank" class="hover:text-green-700"
+                        >Kennisbank</a
+                    >
+                </nav>
+
+                <div
+                    class="flex flex-col md:flex-row md:items-center gap-6 mb-8"
+                >
+                    <div
+                        class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center"
+                    >
+                        <Zap className="w-10 h-10 text-yellow-600" />
+                    </div>
+                    <h1
+                        class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight"
+                    >
+                        Energie & <span class="text-yellow-600"
+                            >Stroomuitval</span
+                        >
+                    </h1>
+                </div>
+
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                    We leven in een wereld die 24/7 op stroom draait. Wat
+                    gebeurt er als de knop omgaat? Geen internet, geen licht, en
+                    in veel gevallen geen verwarming. Dit is niet om je bang te
+                    maken—dit is de realiteit waar je je op kunt voorbereiden.
+                </p>
+            </div>
+
+            <!-- Pillar Article Card -->
+            <div class="mb-16">
+                <h2
+                    class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3"
+                >
+                    <ShieldAlert className="text-red-500" /> De Hoofdrolspeler
+                </h2>
+                <a
+                    href="/kennisbank/energie/stroomuitval-nederland-gids"
+                    class="group block bg-gray-900 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500"
+                >
+                    <div class="grid md:grid-cols-2">
+                        <div class="p-8 md:p-12">
+                            <span
+                                class="inline-block px-3 py-1 rounded-full bg-yellow-500 text-yellow-950 text-xs font-bold uppercase tracking-wider mb-6"
+                            >
+                                Complete Gids
+                            </span>
+                            <h3
+                                class="text-3xl font-bold text-white mb-6 group-hover:text-yellow-400 transition-colors"
+                            >
+                                Stroomuitval in Nederland: De Complete Survival
+                                Gids
+                            </h3>
+                            <p class="text-gray-400 text-lg mb-8">
+                                Dit is de basis. Alles wat je moet weten over de
+                                kwetsbaarheid van het Nederlandse stroomnet en
+                                wat jij vandaag nog moet doen.
+                            </p>
+                            <span
+                                class="text-yellow-500 font-bold flex items-center gap-2"
+                            >
+                                Begin hier <ChevronRight
+                                    className="w-5 h-5 group-hover:translate-x-2 transition-transform"
+                                />
+                            </span>
+                        </div>
+                        <div
+                            class="bg-yellow-600/20 flex items-center justify-center p-12"
+                        >
+                            <Zap
+                                className="w-48 h-48 text-yellow-500 opacity-20 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-700"
+                            />
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Sub Articles Grid -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-8">
+                    Diepere Duik
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    {
+                        articles.map((article) => (
+                            <a
+                                href={article.href}
+                                class="p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:bg-white hover:shadow-lg hover:border-yellow-200 transition-all group"
+                            >
+                                <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-yellow-600 transition-colors">
+                                    {article.title}
+                                </h3>
+                                <p class="text-gray-600 mb-4">
+                                    {article.description}
+                                </p>
+                                <span class="text-sm font-bold text-yellow-600 flex items-center gap-1 uppercase tracking-wider">
+                                    Lees artikel{" "}
+                                    <ChevronRight className="w-4 h-4" />
+                                </span>
+                            </a>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</BaseLayout>

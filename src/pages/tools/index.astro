@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const tools = [
+  {
+    title: "Noodpakket Calculator",
+    description: "Bereken wat je nodig hebt voor de eerste 72 uur.",
+    url: "/tools/noodpakket-calculator",
+    color: "bg-orange-50 border-orange-200 text-orange-700",
+    icon: "📦",
+  },
+  {
+    title: "Waterbehoefte Calculator",
+    description: "Hoeveel water moet jij opslaan voor jouw gezin?",
+    url: "/tools/waterbehoefte-calculator",
+    color: "bg-blue-50 border-blue-200 text-blue-700",
+    icon: "💧",
+  },
+  {
+    title: "Energie Backup Planner",
+    description: "Bereken je stroomverbruik en benodigde accu-capaciteit.",
+    url: "/tools/energie-backup-planner",
+    color: "bg-yellow-50 border-yellow-200 text-yellow-700",
+    icon: "⚡",
+  },
+  {
+    title: "Voorraad Generator",
+    description:
+      "Genereer een complete boodschappenlijst voor je noodvoorraad.",
+    url: "/tools/voorraad-generator",
+    color: "bg-green-50 border-green-200 text-green-700",
+    icon: "🛒",
+  },
+  {
+    title: "Crisis Checklist Builder",
+    description:
+      "Stel een persoonlijke checklist samen voor specifieke scenario's.",
+    url: "/tools/crisis-checklist-builder",
+    color: "bg-red-50 border-red-200 text-red-700",
+    icon: "📋",
+  },
+];
+---
+
+<BaseLayout
+  title="Gratis Tools & Calculators voor Noodsituaties | GoedOverleven.nl"
+  description="Reken direct uit hoeveel water je nodig hebt, bouw je eigen noodpakket en plan je energie-backup. Praktisch, snel en gratis."
+>
+  <div class="container mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">
+        Interactive Tools
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Gebruik onze calculators en generators om je voorbereiding concreet en
+        persoonlijk te maken.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        tools.map((tool) => (
+          <a
+            href={tool.url}
+            class={`block group relative rounded-2xl p-8 border hover:shadow-xl transition-all duration-300 ${tool.color} bg-white hover:bg-opacity-50`}
+          >
+            <div
+              class={`absolute top-0 right-0 p-4 opacity-10 text-6xl group-hover:opacity-20 transition-opacity select-none`}
+            >
+              {tool.icon}
+            </div>
+            <div class="relative z-10">
+              <span class="text-4xl mb-4 block">{tool.icon}</span>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-black">
+                {tool.title}
+              </h3>
+              <p class="text-gray-600 mb-6 font-medium group-hover:text-gray-800">
+                {tool.description}
+              </p>
+              <span class="inline-flex items-center font-bold text-sm uppercase tracking-wider group-hover:underline">
+                Open Tool &rarr;
+              </span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

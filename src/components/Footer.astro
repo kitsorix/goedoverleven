@@ -1,0 +1,127 @@
+---
+import { CheckCircle } from "lucide-react";
+---
+
+<footer
+    class="bg-gray-50 pt-16 pb-24 md:pb-16 border-t border-gray-200"
+    data-nosnippet
+>
+    <div class="container mx-auto px-4">
+        <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 text-center md:text-left"
+        >
+            <div>
+                <h3 class="font-bold text-lg mb-4 text-green-900">Snel naar</h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li>
+                        <a
+                            href="/kennisbank/energie"
+                            class="hover:text-green-700 transition-colors flex items-center justify-center md:justify-start gap-2"
+                            >Energie</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/kennisbank/water"
+                            class="hover:text-green-700 transition-colors flex items-center justify-center md:justify-start gap-2"
+                            >Water</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/kennisbank/voedsel"
+                            class="hover:text-green-700 transition-colors flex items-center justify-center md:justify-start gap-2"
+                            >Voedsel</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg mb-4 text-green-900">
+                    Handige tools
+                </h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li>
+                        <a
+                            href="/tools/voorraad-generator"
+                            class="hover:text-green-700 transition-colors"
+                            >Voorraadmanager</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/tools/waterbehoefte-calculator"
+                            class="hover:text-green-700 transition-colors"
+                            >Watercalculator</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg mb-4 text-green-900">
+                    Goed Overleven
+                </h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li
+                        class="flex items-center justify-center md:justify-start gap-2"
+                    >
+                        <CheckCircle
+                            className="w-4 h-4 text-green-600"
+                            aria-hidden="true"
+                        />
+                        <a
+                            href="/over-ons"
+                            class="hover:text-green-700 transition-colors"
+                            >Over ons</a
+                        >
+                    </li>
+                    <li
+                        class="flex items-center justify-center md:justify-start gap-2"
+                    >
+                        <CheckCircle
+                            className="w-4 h-4 text-green-600"
+                            aria-hidden="true"
+                        />
+                        <a
+                            href="/contact"
+                            class="hover:text-green-700 transition-colors"
+                            >Contact</a
+                        >
+                    </li>
+                    <li
+                        class="flex items-center justify-center md:justify-start gap-2"
+                    >
+                        <CheckCircle
+                            className="w-4 h-4 text-green-600"
+                            aria-hidden="true"
+                        />
+                        <a
+                            href="/privacy"
+                            class="hover:text-green-700 transition-colors"
+                            >Privacybeleid</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="text-center text-gray-500 text-sm border-t border-gray-200 pt-8"
+        >
+            <p class="mb-2">
+                &copy; {new Date().getFullYear()} GoedOverleven.nl. Alle rechten
+                voorbehouden.
+            </p>
+            <p class="max-w-3xl mx-auto text-xs opacity-75 leading-relaxed">
+                Disclaimer: De informatie op deze website is met de grootst
+                mogelijke zorg samengesteld en gebaseerd op uitgebreid
+                onderzoek. Toch kunnen er onjuistheden of verouderde gegevens
+                voorkomen. Wij adviseren gebruikers altijd eigen onderzoek te
+                doen en informatie te verifiëren. Heb je een fout gevonden? Meld
+                dit dan aan ons via het <a
+                    href="/contact"
+                    class="underline hover:text-green-700">contactformulier</a
+                >.
+            </p>
+        </div>
+    </div>
+</footer>

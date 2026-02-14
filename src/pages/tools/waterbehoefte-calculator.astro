@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WaterCalculatorWrapper from "../../components/tools/WaterCalculator.jsx";
+---
+
+<BaseLayout title="Waterbehoefte Calculator | GoedOverleven.nl">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="mb-10 text-center">
+            <h1
+                class="text-4xl font-extrabold text-blue-900 mb-4 tracking-tight"
+            >
+                Waterbehoefte Calculator
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Water is je belangrijkste eerste levensbehoefte. Bereken hier
+                hoeveel je nodig hebt voor jouw huishouden.
+            </p>
+        </div>
+
+        <WaterCalculatorWrapper client:load />
+
+        <div class="mt-12 prose prose-lg mx-auto text-gray-600">
+            <h3>Waarom water opslaan?</h3>
+            <p>
+                Een mens kan slechts 3 dagen zonder water. Bij een leidingbreuk
+                of vervuiling is het essentieel om een eigen voorraad te hebben.
+                De overheid adviseert minimaal 3 liter water per persoon per dag
+                op voorraad te hebben.
+            </p>
+            <h3>Hoe lang is water houdbaar?</h3>
+            <p>
+                Water in gesloten, donkere jerrycans is tot wel een jaar
+                houdbaar mits je er een conserveringsmiddel (zoals Hadex) aan
+                toevoegt. Ververs water uit de kraan (in flessen) elke 6
+                maanden.
+            </p>
+        </div>
+    </div>
+</BaseLayout>

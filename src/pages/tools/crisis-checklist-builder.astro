@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CrisisChecklistBuilderWrapper from "../../components/tools/CrisisChecklistBuilder.jsx";
+---
+
+<BaseLayout title="Crisis Checklist Builder | GoedOverleven.nl">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="mb-10 text-center">
+            <h1
+                class="text-4xl font-extrabold text-red-900 mb-4 tracking-tight"
+            >
+                Crisis Checklist Builder
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Elke crisis is anders. Maak hier vliegensvlug een checklist die
+                past bij jouw specifieke zorgen.
+            </p>
+        </div>
+
+        <CrisisChecklistBuilderWrapper client:load />
+
+        <div class="mt-12 prose prose-lg mx-auto text-gray-600">
+            <h3>Het belang van een plan</h3>
+            <p>
+                In tijden van stress vergeet je de simpelste dingen. Een fysieke
+                checklist (geprint) geeft rust en structuur. Hang deze lijst in
+                je meterkast of bewaar hem bij je noodpakket.
+            </p>
+            <h3>Regelmatige controle</h3>
+            <p>
+                Situaties veranderen. Heb je er een huisdier bij? Of een baby?
+                Pas je checklist elk jaar aan en print een nieuwe versie.
+            </p>
+        </div>
+    </div>
+</BaseLayout>
